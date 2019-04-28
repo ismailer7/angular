@@ -1,0 +1,7 @@
+<h1>
+  response from server : {{ message }}
+</h1>
+
+<ul *ngFor="let user of users" id="list">
+  <li>{{ user.id }}. {{ user.name }} - {{ user.email }} - {{ user.status }}</li>
+</ul>
