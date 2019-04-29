@@ -11,12 +11,14 @@ import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
   {path: '', children: [
-    {path: '', component: LoginComponent},
+    {path: '', component: LoginComponent,},
     {path: 'register', component: RegisterComponent},
   ]},
+  {path: 'home', component: HomeComponent},
 ]
 
 @NgModule({
@@ -25,7 +27,8 @@ const appRoutes: Routes = [
     UsersListComponent,
     RegisterComponent,
     IndexComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

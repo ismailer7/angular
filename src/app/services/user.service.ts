@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/User'
 import { HttpHeaders } from '@angular/common/http';
+import { Post } from '../models/Post'
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -18,7 +19,7 @@ export class UserService {
 
   private _urlHello: string = "http://192.168.43.232:8087/demo/hello/"
 
-  private _urlUsers: string = "http://192.168.43.232:8087/demo/allUsers"
+  private _urlUsers: string = "http://192.168.43.232:8087/allUsers"
 
   // dependency injection
   constructor(private http: HttpClient) { }
@@ -37,7 +38,7 @@ export class UserService {
   }
 
   register(user: any){
-    return this.http.post<User>('http://192.168.43.232:8087/demo/addUser', user, httpOptions)
+    return this.http.post<User>('http://192.168.43.232:8087/addUser', user, httpOptions)
       .pipe(
         // catchError(this.handleError('addHero', hero))
       );
@@ -48,9 +49,16 @@ export class UserService {
   delete(id: number) {}
 
   loginUser(data: any): Observable<User> {
-    return this.http.post<User>('http://192.168.43.232:8087/demo/getUser', data, httpOptions)
+    return this.http.post<User>('http://192.168.43.232:8087/getUserDTO', data, httpOptions)
       .pipe(
         // catchError(this.handleError('addHero', hero))
+      );
+  }
+
+  getAllPost(id: number): Observable<Post> {
+    return this.http.get<Post>(`http://192.168.43.232:8087/Posts?id=${id}`)
+      .pipe(
+
       );
   }
 

@@ -25,11 +25,18 @@ export class LoginComponent implements OnInit {
     this._userService.loginUser(data).subscribe(
       data => {
           if (data) {
-            console.log('success' + data)
+            console.log('success')
+            console.log(data)
             // save in localStorage
             // redirect to home component
+           
+            // this.router.navigateByUrl('home', { data: {test: 'test'} })
+            this.router.navigate(['/home'], {state: data})
+            console.log('go to home page')
+            localStorage.setItem('currentUser', JSON.stringify(data))
           } else {
             console.log('error')
+            // this.router.navigateByUrl('home')
           }
       }
 
