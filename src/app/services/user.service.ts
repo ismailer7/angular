@@ -55,8 +55,8 @@ export class UserService {
       );
   }
 
-  getAllPost(id: number): Observable<Post> {
-    return this.http.get<Post>(`http://192.168.43.232:8087/Posts?id=${id}`)
+  getAllPost(id: number): Observable<any> {
+    return this.http.get<any>(`http://192.168.43.232:8087/DTOPosts?id=${id}`)
       .pipe(
 
       );

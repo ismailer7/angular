@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../services/user.service';
+import { Post } from '../models/Post' 
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   data: object
 
-  posts : any[]
+  posts: any[]
 
 
   constructor(private router: Router, private _userService: UserService) { 
@@ -24,7 +25,7 @@ export class HomeComponent implements OnInit {
         data => {
           console.log('all posts : ')
           console.log(data)
-          this.posts = data
+          this.posts = data;
         })
     }
   }
